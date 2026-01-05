@@ -1,0 +1,24 @@
+// 클래스 선언
+/*
+  <form method="get/post/put/delete" action='http://localhost:8000'>
+    <input type='file'>
+  </form>
+*/
+class ImageUploader {
+  //함수
+  //@param : file(image/*)
+  async upload(file) { //<input type='file'>
+    const data = new FormData(); //폼 전송을 구현하기 - 화면 없이 폼 전송의 형태로 처리
+    data.append('file', file);
+    data.append('upload_preset', 'cloudApp');//
+    const result = await fetch( //비동기처리 지원 -> axios
+      'https://api.cloudinary.com/v1_1/denadk4wl/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    return await result.json();
+  }  
+}
+export default ImageUploader;

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import CardAddForm from './CardAddForm'
+import CardEditorForm from './CardEditorForm'
 
 const EditorDiv = styled.div`
 	flex-basis: 50%;
@@ -13,10 +15,17 @@ const TitleH1 = styled.h1`
 	color: #594545;
 `
 
-const CardEditor = () => {
+const CardEditor = ({FileInput, cards, insertOrUpdateCard, deleteCard}) => {
   return (
     <EditorDiv>
-      명함 에디터
+      <TitleH1>Card Editor</TitleH1>
+			{Object.keys(cards).map(key => (
+				<CardEditorForm FileInput={FileInput} key={key} card={cards[key]}
+					insertOrUpdateCard={insertOrUpdateCard} deleteCard={deleteCard}
+				/>
+			))}
+			{/* 새로 작성하기 이므로 card넘길 필요없음 */}
+			<CardAddForm FileInput={FileInput} insertOrUpdateCard={insertOrUpdateCard}  />
     </EditorDiv>
   )
 }
