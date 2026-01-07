@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Button from '../common/Button'
+import { useRef } from 'react'
 
 const Form = styled.form`
   display: flex;
@@ -33,9 +34,41 @@ const FileInputDiv = styled.div`
   border-right: 1px solid black;
   background: #F5EBE0;     
 `
-
+const Input = styled.input`
+  font-size: 0.8rem;
+  width: 100%;
+  border: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid black;
+  border-radius: 1px solid black;
+  background: #F5EBE0;
+  flex: 1 1 30%;
+  &:focus {
+    outline: none;
+  }
+`
+const TextArea = styled.textarea`
+  font-size: 0.8rem;
+  flex-basis: 100%;
+  width: 100%;
+  border: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid black;
+  border-radius: 1px solid black;
+  background: #F5EBE0;
+  &:focus {
+    outline: 0;
+  }
+`
 const CardEditorForm = ({FileInput, card}) => {
   const {name, theme, fileName, fileURL} = card
+  const formRef = useRef();
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();  
   const handleChange = (event) => {
     console.log(event.currentTarget)
   }
@@ -52,11 +85,17 @@ const CardEditorForm = ({FileInput, card}) => {
   }
   return (
     <Form>
+      {/* useRef는 document.querySelector */}
+      <Input ref={nameRef} name='name' placeholder='Name' />
+      <Input ref={companyRef} name='company' placeholder='Company' />
       <Select name='theme' value={theme} onChange={handleChange}>
         <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
       </Select>
+      <Input ref={titleRef} name="title" placeholder='Title'  />
+      <Input ref={emailRef} name="email" placeholder='Email' />
+      <TextArea ref={messageRef} name='message' placeholder='Message' />
       <FileInputDiv>
         <FileInput name={fileName} onChange={handleChange} onFileChange={onFileChange} />
       </FileInputDiv>

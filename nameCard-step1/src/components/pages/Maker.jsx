@@ -23,7 +23,8 @@ const ContainerDiv = styled.div`
 
 const Maker = ({FileInput}) => {
     const [cards, setCards] = useState({
-    '1':{
+      /*
+      '1':{
       id: '1',
       theme: 'dark',
       fileName: 'lee',
@@ -41,7 +42,9 @@ const Maker = ({FileInput}) => {
       fileName: 'park',
       fileURL: null,
     },
-  });   
+    */
+  });   //end of 더미데이터
+
 
   const navigate = useNavigate()
   const handleLogout = async() => {
