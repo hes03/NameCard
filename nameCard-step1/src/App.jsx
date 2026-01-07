@@ -11,14 +11,14 @@ const AppDiv = styled.div`
     align-items: center;
     background-color: #e8e7e6;
 `
-const App = ({FileInput}) => {
+const App = ({FileInput, cardLogic}) => {
   //선언부
   return (
     <>
       <AppDiv>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/maker" element={<Maker FileInput={FileInput} />} />
+          <Route path="/maker" element={<Maker FileInput={FileInput} cardLogic={cardLogic} />} />
         </Routes>
       </AppDiv>
     </>
