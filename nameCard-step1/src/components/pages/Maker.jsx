@@ -124,6 +124,7 @@ const Maker = ({FileInput, cardLogic}) => {
   //deleteCard는 CardEditorForm에서 호출하는데 
   //삭제 정보는 상위 컴포넌트인 Maker까지 전달되어야 함.
   const deleteCard = card => {
+    //CardEditorForm.jsx에서 누른 삭제버튼의 id를 가져와야 함
     console.log('deleteCard 호출')
     console.log(card)
     //delete from schedule where id=2
