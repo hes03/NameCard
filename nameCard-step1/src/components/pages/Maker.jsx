@@ -80,7 +80,8 @@ const Maker = ({FileInput, cardLogic}) => {
   // 함수의 파라미터 자리와 props(properties)를 사용하면 된다.
   // Firebase에서 조회된 결과를 상위 컴포넌트에서 가지고 있으니 상위 컴포넌트에서 
   // 수정, 입력, 삭제를 처리한다.
-
+  // insertOrUpdateCard함수는 CardAddForm에서 호출하고
+  // 파라미터도 CardAddForm에서 결정됨
   const insertOrUpdateCard = card => {
     console.log('insertOrUpdateCard 호출')
     console.log(card)
